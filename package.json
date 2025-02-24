@@ -47,5 +47,8 @@
   "dependencies": {
     "@types/jest": "^27.0.1",
     "@types/systemjs": "^6.1.1"
+  },
+  "engines": {
+    "node": ">=16.0.0 <=22.14.0"
   }
 }
