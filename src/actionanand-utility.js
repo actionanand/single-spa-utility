@@ -24,7 +24,7 @@ export function getData(url) {
   });
 }
 
-export const state$ = new BehaviorSubject({data: rxjxData});
+export const state$ = new BehaviorSubject({ data: rxjxData });
 
 window.addEventListener('vanilla', (evnt) => {
   const fields = ['detail'];
