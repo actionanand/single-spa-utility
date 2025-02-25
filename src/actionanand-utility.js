@@ -11,11 +11,11 @@ export function getData(url) {
     console.log('cached api');
     return Promise.resolve(data);
   }
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     // API Mock
     setTimeout(() => {
       const apiResponse = {
-        result: 10,
+        result: 13,
       };
       apiCache.set(url, apiResponse);
       console.log('actual api');
@@ -26,7 +26,14 @@ export function getData(url) {
 
 export const state$ = new BehaviorSubject({ data: rxjxData });
 
-window.addEventListener('vanilla', (evnt) => {
+const isSidebarCollapsed = new BehaviorSubject(false);
+export const isSidebarCollapsed$ = isSidebarCollapsed.asObservable();
+
+export function updateSidebarState(value) {
+  isSidebarCollapsed.next(value);
+}
+
+window.addEventListener('vanilla', evnt => {
   const fields = ['detail'];
   console.log(evnt);
   console.log(evnt[fields[0]]);
